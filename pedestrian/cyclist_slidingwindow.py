@@ -15,9 +15,10 @@ def sliding_window(image, stepSize, windowSize):
             ##when x go above the range
             if((x + windowSize[1]) > image.shape[1] and y + windowSize[0] <= image.shape[0]):
                 yield (x, y, image[y:y + windowSize[1], image.shape[1] - windowSize[0]:image.shape[1]])
+                break
                 
             ##when y go above the range
-            elif((y + windowSize[0]) > image.shape[0] and x + windowSize[1] < image.shape[1]):
+            elif((y + windowSize[0]) > image.shape[0] and x + windowSize[1] <= image.shape[1]):
                 yield (x, y, image[image.shape[0] - windowSize[1]:image.shape[0], x:x + windowSize[0]])
             
             ##when both x and y go above the range
